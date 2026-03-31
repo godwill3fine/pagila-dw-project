@@ -35,7 +35,8 @@ This guide strictly uses **pgAdmin 4** (which usually comes bundled with Postgre
 In the exercise you are required to perform the **ETL (Extract Transform Load)** process for a **Data Warehouse** from OLTP tables. 
 
 >The exercise was as follows:
->Create 
+
+>Create: 
 
 >**Fact Table: fact_rentals**
 >* rental_id
