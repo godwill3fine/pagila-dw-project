@@ -60,13 +60,73 @@ In the exercise you are required to perform the **ETL** process for a **Data War
 >* Optimization  Techniques
 >* Indexing, partitioning, Materialized views
 
-The schema and the dataset can be downloaded as a Zip file in Kaggle here 👉https://www.kaggle.com/datasets/kapturovalexander/pagila-postgresql-sample-database . **Note: You may need to create an account to be able to download the file**.
+The schema and the dataset can be downloaded as a Zip file in Kaggle here 👉https://www.kaggle.com/datasets/kapturovalexander/pagila-postgresql-sample-database . **Note: You may need to create an account to be able to download the file**.  
+A class diagram is also provided if you'd like to see the relationships within the database.
 
   <img width="700" height="283" alt="pagila" src="https://github.com/user-attachments/assets/313adb29-2ee9-493c-969f-9cacf633f40e" />  
-
   
 Once you've downloaded it, extract the files. It containts a number of sql files e.g. pagila-schema.sql, pagila-insert-data.sql etc.  
-✅You'll also need the queries for creating the data warehouse, download the **dw** file in this repo and extract it.
+✅You'll also need the queries for creating the data warehouse, download the **dw.zip** file in this repo and extract it.
+**You are now ready!**
+### 1. Step One: Set up the Transactional Database (OLTP)
+First, we need to create our baseline database and load the raw DVD rental data.  
+1. Open **pgAdmin4** and connect to your local server.
+2. Select **Databases** and right-click **Databases > Create > Database**.
+   
+   <img width="744" height="360" alt="create database" src="https://github.com/user-attachments/assets/4c423455-4ca8-42b2-92e3-3a6524d85c03" />
+3. Name the database **pagila_dw_database** (or whatever you like really🙂) and **Save**.
+4. Select your new **pagila_dw_database** and open the **Query Tool**.
+
+   <img width="1105" height="422" alt="query tool" src="https://github.com/user-attachments/assets/caa69bd6-2392-4043-aab1-0087a7ad65e9" />
+5. Open the files you downloaded from Kaggle and execute them, in a sequential order starting with **1.pagila-schema.sql** then **2.pagila-insert-data.sql** etc.:
+
+   <img width="1216" height="552" alt="execute queries" src="https://github.com/user-attachments/assets/94ce59bb-0c26-4541-b176-8ee4ffe21046" />
+6. Once the query is pasted on the window, execute it. Repeat the process for all the query files.
+
+   <img width="1157" height="502" alt="run" src="https://github.com/user-attachments/assets/c13d9aa5-489b-4fd1-b11c-e31324d76e2e" />
+
+     
+   >The **1.pagila-schema.sql** builds the database schema. **A schema** is a collection of logical structures that defines exactly how your analytical data is organized, stored, and related. Think of it as a **blueprint**. In contrast, a **Data Warehouse** is the entire storage system, basically, if the schema is a blueprint then the **DW** is the building itself.
+   
+   >A schema contains **Fact tables, Dimension tables, Data Types, Keys and Relationships, Constraints, Views, Indexes, and programmable objects like Stored Procedures, Functions and Triggers**.
+   
+   >A Data Warehouse on the other hand contains the **actual data**, **meta data** and the **computing power**.
+   
+   >The **2.pagila-insert-data.sql** adds data into our database.
+
+   >There should be **pop-ups** below the query window when you execute the code informing you that the code compiled **successfully**. Alternatively, in the **Message panel** below the query window, there should be a message like `Successfully run. Total query runtime: 236 msec.
+10 rows affected.`
+   
+   >You can query the database to check the data inserted, try `SELECT * FROM dw.dim_customer LIMIT 10;`. You should see results in the **Data Output panel**.
+### 2. Step two: Create the Data Warehouse Schema (OLAP)
+Now we build our Warehouse separately to hold our denormalized **Dimension and Fact Tables**. Then we'll populate the **DW** with data from the **pagila_dw_database**.  
+You should by now have the **dw.zip** provided in this repo extracted. We'll start by defining the **DW** schema.  
+1. Open the **dw** folder and run **dw_schema.sql**.
+   
+   <img width="1161" height="599" alt="dw schema" src="https://github.com/user-attachments/assets/db6d1d09-f3ed-4d28-abfc-a4f98d9f3db8" />
+
+   >We've now build the schema, next we populate it with data.
+2. Perform the same process, only this time execute the **insert queries**. Refresh your database tree. You should now see a **dw schema** containing tables like **dim_customer, dim_film, and fact_rentals**.
+
+   <img width="700" height="700" alt="side panel" src="https://github.com/user-attachments/assets/de8a3b27-227f-4dd0-97e9-355eec8ad4ee" />
+
+
+**Congratulations!💯🍾**And with that the **pagila-dw-database** is complete. You can now answer and perform the analysis  mentioned in part 3 of the quizzes. I've provided the queries in the **dw** folder (**quizzes** sub-folder), but you can try on your own if you'd like to practice😁.  
+
+## 🤝 Need Help or Found a Bug?
+If you encounter any errors while running these scripts, or if you get stuck on the ETL phase:
+* **Open an Issue**: Click on the **Issues tab** at the top of this repository and clearly describe the error message you are seeing. I will do my best to help you troubleshoot!
+* **Contribute**: Did you find a better way to optimize one of the analytical queries? Feel free to fork this repository, add your improvements, and submit a Pull Request.
+
+## ⭐ Support the Project
+If this step-by-step guide helped you understand PostgreSQL Data Warehousing and the ETL process, please consider giving this repository a Star ⭐️ at the top right of the page. It helps others find this resource! It took me a lot of time to create this, any support is greatly appreciated😇.
+
+Happy Querying! 🐘🚀
+
+
+   
+
+
 
   
 
