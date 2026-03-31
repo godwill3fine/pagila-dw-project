@@ -15,7 +15,8 @@ Then add it to **Path Environment variables**. (This also applies if it's instal
   <img width="600" height="250" alt="navigate to directory" src="https://github.com/user-attachments/assets/08ee0551-b127-4528-811b-8995408b26cd" />
 * Double click the **address bar** and **copy the path**.
   
-  <img width="560" height="280" alt="copy path" src="https://github.com/user-attachments/assets/bb787977-8d60-45c0-824f-16c5cec9364c" />
+  <img width="929" height="378" alt="copied path" src="https://github.com/user-attachments/assets/97cccb2f-3765-4b7c-a4e9-79214e03177c" />
+
 * Click the Windows **Search icon** and search **Edit system environment variables**. Alternatively **Press Win + R** and type **SystemPropertiesAdvanced** then press **Enter**.
 * Click **Environment Variables** to open environment variables window.
   
