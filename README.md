@@ -81,7 +81,7 @@ First, we need to create our baseline database and load the raw DVD rental data.
 5. Open the files you downloaded from Kaggle and execute them, in a sequential order starting with **1.pagila-schema.sql** then **2.pagila-insert-data.sql** etc.
 
    <img width="1216" height="552" alt="execute queries" src="https://github.com/user-attachments/assets/94ce59bb-0c26-4541-b176-8ee4ffe21046" />
-6. Once the query is pasted in the window, execute it. Repeat the process for all the query files.
+6. Once the query is pasted in the window, execute it. Repeat the process for all the **query files**. (**Note: Just the query files "`file.sql`", don't add the csv files or any other file**)
 
    <img width="1157" height="502" alt="run" src="https://github.com/user-attachments/assets/c13d9aa5-489b-4fd1-b11c-e31324d76e2e" />
 
